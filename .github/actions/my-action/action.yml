@@ -1,0 +1,17 @@
+name: 'My Custom Action'
+description: 'A simple self-built GitHub action on Ubuntu latest.'
+runs:
+  using: 'node12'  # Using Node.js to run the action, but you can use other environments like Docker or shell
+  main: 'index.js' # The entry point script for your action
+inputs:
+  name:
+    description: 'Your name'
+    required: true
+    default: 'World'
+outputs:
+  message:
+    description: 'A message saying hello'
+    value: ${{ steps.hello.outputs.message }}
+
+# Optionally, define a shell or Docker environment
+

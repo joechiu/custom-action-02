@@ -1,0 +1,20 @@
+name: 'Test My Custom Action'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  my-custom-action:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # Checkout the repository code
+
+    - name: Run my custom action
+      uses: ./ .github/actions/my-action  # Path to the custom action
+      with:
+        greeting: 'Hello'  # Input for the custom action
+
