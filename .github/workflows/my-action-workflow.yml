@@ -1,4 +1,4 @@
-name: 'Test My Custom Action'
+name: 'My Custom Action Workflow'
 
 on:
   push:
@@ -6,15 +6,15 @@ on:
       - main
 
 jobs:
-  my-custom-action:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+  my-action-job:
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2  # Checkout the repository code
-
+    - name: Check out code
+      uses: actions/checkout@v2
+      
     - name: Run my custom action
-      uses: ./ .github/actions/my-action  # Path to the custom action
+      uses: ./ .github/actions/my-action  # Pointing to the local action
       with:
-        greeting: 'Hello'  # Input for the custom action
+        name: 'GitHub User'  # Input value for 'name'
 
